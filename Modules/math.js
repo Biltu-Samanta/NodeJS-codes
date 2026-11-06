@@ -5,7 +5,13 @@ function sub(a, b) {
     return a - b;
 }
 
-module.exports = {
-    addFn: add,
-    subFn: sub,
-}
+// module.exports = {
+//     addFn: add,
+//     subFn: sub,
+// }                          // Default export
+
+// Export using arrow function
+
+exports.add = (a, b) => a + b;
+exports.sub = (a, b) => a - b;
+
