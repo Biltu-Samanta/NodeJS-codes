@@ -22,6 +22,9 @@ app.route("/api/users/:id")
         const user = users_data.find((user) => user.id === id);
         return res.json(user)
     })
+    .post((req, res) => {
+        return res.json({ status: "pending" })
+    })
 
 app.get("/api/users", (req, res) => {
     return res.json(users_data)
