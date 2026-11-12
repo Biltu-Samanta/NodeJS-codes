@@ -1,5 +1,6 @@
 const express = require("express")
 const users_data = require("./MOCK_DATA.json")
+const fs = require("fs")
 
 const app = express()
 const PORT = 8000;
@@ -28,8 +29,12 @@ app.route("/api/users/:id")
     })
     .post((req, res) => {
         const body = req.body;
-        console.log(body)
-        return res.json({ status: "pending" })
+        users_data.push({ ...body, id: users_data.length })
+        fs.writeFile("./MOCK_DATA.json", JSON.stringify(users_data), (err, data) => {
+            return res.json({ status: "pending" })
+
+            console.log(body)
+        })
     })
 
 app.get("/api/users", (req, res) => {
@@ -39,5 +44,4 @@ app.get("/api/users", (req, res) => {
 app.listen(PORT, () => {
     console.log(`server start at POST ${PORT}`)
 })
-// ROUTES GROUPPING 
 
