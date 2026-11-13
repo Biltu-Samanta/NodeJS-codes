@@ -33,7 +33,7 @@ app.route("/api/users/:id")
         fs.writeFile("./MOCK_DATA.json", JSON.stringify(users_data), (err, data) => {
             return res.json({ status: "pending" })
 
-            console.log(body)
+            //console.log(body)
         })
     })
 
